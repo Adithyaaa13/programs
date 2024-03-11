@@ -1,0 +1,19 @@
+import java.io.*;
+class dispnum {
+public static void main(String args[]) {
+int m,n;
+DataInputStream dr=new DataInputStream(System.in);
+try
+{
+System.out.println("ADITHYA K L");
+System.out.println("program to display numbers from m to n using single whileloop");
+System.out.print("Enter the value of m: ");
+m=Integer.parseInt(dr.readLine());
+System.out.print("Enter the value of n: ");
+n=Integer.parseInt(dr.readLine());
+System.out.println("Numbers from " + m + " to " + n + ":");
+while (m <= n) {
+System.out.print(m + " ");
+m++;
+}
+}
