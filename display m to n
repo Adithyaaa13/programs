@@ -17,3 +17,9 @@ System.out.print(m + " ");
 m++;
 }
 }
+catch(Exception e)
+{
+System.out.println(e);
+}
+}
+}
