@@ -1,0 +1,56 @@
+import java.io.*;
+class rowcolumn
+{
+public static void main(String[] args) {
+int n, m, sumRow, sumCol,i,j;
+DataInputStream dr=new DataInputStream(System.in);
+try
+{
+System.out.println("ADITHYA K L");
+System.out.println("program toto print the row wise and column wise sumof a
+2D array. ");
+System.out.println("enter no of rows");
+m=Integer.parseInt(dr.readLine());
+System.out.println("enter no of columns");
+n=Integer.parseInt(dr.readLine());
+int a[][]=new int[m][n];
+System.out.println("enter the elements");
+for(i=0;i<m;i++)
+{
+for(j=0;j<n;j++)
+{
+a[i][j]=Integer.parseInt(dr.readLine());
+}
+}
+System.out.println("elements are");
+for(i=0;i<m;i++)
+{
+for(j=0;j<n;j++)
+{
+System.out.print(+a[i][j]+ " ");
+}
+System.out.println(" ");
+}
+for( i = 0; i < m; i++){
+sumRow = 0;
+for(j = 0; j < n; j++){
+sumRow = sumRow + a[i][j];
+}
+System.out.println("Sum of " + (i+1) +" row: " + sumRow);
+}
+for(i = 0; i < n; i++)
+{
+sumCol = 0;
+for(j = 0; j < m; j++)
+{
+sumCol = sumCol + a[j][i];
+}
+System.out.println("Sum of " + (i+1) +" column: " + sumCol);
+}
+}
+catch(Exception e)
+{
+System.out.println(e);
+}
+}
+}
