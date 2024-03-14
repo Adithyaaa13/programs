@@ -1,0 +1,35 @@
+import java.io.*;
+
+public class AlternateMergeFiles {
+    public static void main(String[] args) {
+        alternateMergeFiles("hai.txt", "world.txt", "merged_file.txt");
+    }
+
+    public static void alternateMergeFiles(String inputFile1, String inputFile2, String outputFile) {
+        try (BufferedReader reader1 = new BufferedReader(new FileReader(inputFile1));
+             BufferedReader reader2 = new BufferedReader(new FileReader(inputFile2));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
+
+            String line1, line2;
+            line2 = reader2.readLine(); // Initialize line2 outside the loop
+            // Merge lines alternately from both files
+            while ((line1 = reader1.readLine()) != null) {
+                writer.write(line1);
+                writer.newLine();
+                if ((line2 = reader2.readLine()) != null) { // Read line from file2 if available
+                    writer.write(line2);
+                    writer.newLine();
+                }
+            }
+            // If file1 still has more lines, write them to the output file
+            while ((line2 = reader2.readLine()) != null) {
+                writer.write(line2);
+                writer.newLine();
+            }
+
+            System.out.println("Files merged alternately successfully!");
+        } catch (IOException e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
